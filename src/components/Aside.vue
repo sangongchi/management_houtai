@@ -1,10 +1,10 @@
 <template>
   <div class="aside">
     <!-- 展示收起按钮区域 -->
-    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group>
+    <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;"> -->
+      <el-button v-model="isCollapse" @click="dis()">展开</el-button>
+      <!-- <el-radio-button :label="true">收起</el-radio-button> -->
+    <!-- </el-radio-group> -->
     <!-- 下拉菜单区域 -->
     <el-menu
       default-active="1-4-1"
@@ -60,6 +60,16 @@ export default {
     };
   },
   methods: {
+    dis(){
+      if(this.isCollapse)
+      {
+        this.isCollapse=false
+      }
+      else{
+        this.isCollapse=true
+      }
+      console.log(this.isCollapse);
+    },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
