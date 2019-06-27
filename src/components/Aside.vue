@@ -5,7 +5,6 @@
       <el-radio-button :label="false">展开</el-radio-button>
       <el-radio-button :label="true">收起</el-radio-button>
     </el-radio-group>
-
     <!-- 下拉菜单区域 -->
     <el-menu
       default-active="1-4-1"
@@ -13,6 +12,8 @@
       @open="handleOpen"
       @close="handleClose"
       :collapse="isCollapse"
+      unique-opened
+      router
     >
       <el-submenu index="1">
         <template slot="title">
@@ -20,11 +21,12 @@
           <span slot="title">导航一</span>
         </template>
         <el-menu-item-group>
-          <span slot="title">分组一</span>
           <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
+         
+          <router-link to="/page12">
+            <el-menu-item >选项2</el-menu-item>
+          </router-link>
+          
           <el-menu-item index="1-3">选项3</el-menu-item>
         </el-menu-item-group>
         <el-submenu index="1-4">
@@ -34,11 +36,11 @@
       </el-submenu>
       <el-menu-item index="2">
         <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
+        <span slot="title">页面2</span>
       </el-menu-item>
-      <el-menu-item index="3" disabled>
+      <el-menu-item index="3">
         <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
+        <span slot="title">页面31</span>
       </el-menu-item>
       <el-menu-item index="4">
         <i class="el-icon-setting"></i>
@@ -51,7 +53,7 @@
 
 <script>
 export default {
-  name: "aside",
+  name: "asi",
   data() {
     return {
       isCollapse: true
@@ -70,14 +72,12 @@ export default {
 
 
 <style scoped>
-    .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 700px;
-    }
-    .aside .el-menu{
-        min-height:700px;
-    }
-
-    
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 700px;
+}
+.aside .el-menu {
+  min-height: 700px;
+}
 </style>
 

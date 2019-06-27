@@ -1,48 +1,60 @@
 <template>
   <div class="box">
     <el-container>
-      <!-- 头部区域编写开始 -->
-      <el-header>Header</el-header>
-      <!-- 头部区域编写结束 -->
-
-      <!-- 中间主体区域编写开始 -->
-
-
       <el-container>
         <!-- 侧边栏编写开始 -->
         <el-aside style="width:auto">
-            <Aside></Aside>
+          <Aside></Aside>
         </el-aside>
         <!-- 侧边栏编写结束 -->
 
-        <!-- content区域编写开始 -->
+         <!-- 右侧主体区域编写开始 -->
         <el-container>
-          <el-main>Main</el-main>
+
+          <!-- 头部区域编写开始 -->
+          <el-header>
+            <Header></Header>
+          </el-header>
+          <!-- 头部区域编写结束 -->
+
+          <!-- content区域编写开始 -->
+          <el-main>
+            <router-view></router-view>
+          </el-main>
+          <!-- content区域编写结束 -->
+
         </el-container>
-        <!-- content区域编写结束 -->
-
+        
       </el-container>
-      <!-- 中间主体区域编写结束 -->
-
+      <!-- 右侧主体区域编写结束 -->
 
       <!-- 底部区域编写开始 -->
-      <el-footer>Footer</el-footer>
+      <el-footer>
+        <Footer></Footer>
+      </el-footer>
       <!-- 底部区域编写结束 -->
     </el-container>
   </div>
 </template>
 <script>
-import Aside from './Aside'
+import Aside from "./Aside";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default {
   name: "index",
-  components:{
-      Aside
+  components: {
+    Aside,
+    Header,
+    Footer
   }
 };
 </script>
 
 <style>
+body {
+  width: 100%;
+}
 .box {
   width: 100%;
   height: 800px;
@@ -53,6 +65,7 @@ export default {
 .el-header,
 .el-footer {
   background-color: #b3c0d1;
+  padding: 0px;
 }
 
 .el-aside {
